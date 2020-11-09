@@ -7,5 +7,8 @@
     "start": "node app.js"
   },
   "author": "ThalesR",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^16.1.0"
+  }
 }

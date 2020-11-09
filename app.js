@@ -1,11 +1,113 @@
 const canciones = require('./lib/canciones');
 
 
-console.log(canciones.addCancion("Teste", "Testador", "2020"));
-console.log(canciones.readCancion("Times go by"));
-console.log(canciones.readCancion("Teste"));
-console.log(canciones.editArtista('Teste', 'Retirado'));
-console.log(canciones.delCancion('Teste'));
-console.log(canciones.listCanciones());
-console.log(canciones.sortCanciones('año'));
-console.log(canciones.sortCanciones('nombre'));
+const yargs = require('yargs')
+
+yargs.command({
+    command: 'add',
+    describe: 'Añadir canción',
+    builder: {
+        titulo: {
+            alias: 't',
+            describe: 'Titulo de la canción',
+            demandOption: true,
+            type: 'string'
+        },
+        artista: {
+            alias: 'a',
+            describe: 'Artista de la canción',
+            demandOption: true,
+            type: 'string'
+        },
+        año: {
+            alias: 'y',
+            describe: 'Año de la canción',
+            demandOption: true,
+            type: 'string'
+        },
+    },
+    handler(argv) {
+        canciones.addCancion(argv.titulo, argv.artista, argv.año);
+    }
+})
+
+yargs.command({
+    command: 'read',
+    describe: 'Leer canción',
+    builder: {
+        titulo: {
+            alias: 't',
+            describe: 'Titulo de la canción',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler(argv) {
+        canciones.readCancion(argv.titulo);
+    }
+})
+
+yargs.command({
+    command: 'editartist',
+    describe: 'Cambiar artista de la canción',
+    builder: {
+        titulo: {
+            alias: 't',
+            describe: 'Titulo de la canción',
+            demandOption: true,
+            type: 'string'
+        },
+
+    },
+    artista: {
+        alias: 'a',
+        describe: 'Nuevo artista de la canción',
+        demandOption: true,
+        type: 'string'
+    },
+    handler(argv) {
+        canciones.editArtista(argv.titulo, argv.artista);
+    }
+})
+
+yargs.command({
+    command: 'del',
+    describe: 'Borrar canción',
+    builder: {
+        titulo: {
+            alias: 't',
+            describe: 'Titulo de la canción',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler(argv) {
+        canciones.delCancion(argv.titulo);
+    }
+})
+
+yargs.command({
+    command: 'list',
+    describe: 'Borrar canción',
+    handler(argv) {
+        canciones.listCanciones();
+    }
+})
+
+yargs.command({
+    command: 'sort',
+    describe: 'Ordenar canciones',
+    builder: {
+        criterio: {
+            alias: 'c',
+            describe: 'Nombre o Año',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler(argv) {
+        canciones.sortCanciones(argv.criterio);
+    }
+})
+
+yargs.parse()
