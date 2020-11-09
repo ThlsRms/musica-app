@@ -1,13 +1,18 @@
 # musica-app
 
-[{nombre: 'Times go by', artista: 'Madona', año: 2003}]
+### Formato del fichero JSON:
+ ````Json
+ [
+     {
+         nombre: 'Canción', 
+         artista: 'Artista', 
+         año: 0000}]
+ ````
 
-app.js
-canciones.js
-    addCancion()
-    readCancion(titulo) 
-    editArtista(titulo)
-    delCancion(titulo)
-    listCanciones()
-    sortCanciones(artista:año)
-canciones.json
+## Comandos Yargs:
+    * add -t="Canción" -a="Artista" -y="Año"
+    * read -t="Canción"
+    * editartist -t="Canción" -a="Artista"
+    * del -t="Canción"
+    * sort -c="Nombre | Año"
+    * list
