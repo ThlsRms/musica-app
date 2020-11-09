@@ -4,9 +4,9 @@
 ````Json
 [
     {
-         nombre: 'Canción', 
-         artista: 'Artista', 
-         año: 0000
+         "nombre": "Canción", 
+         "artista": "Artista", 
+         "año": "0000"
     }
 ]
 ````
