@@ -1,0 +1,11 @@
+{
+  "name": "musica-app",
+  "version": "1.0.0",
+  "description": "[{nombre: 'Times go by', artista: 'Madona', año: 2003}]",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "ThalesR",
+  "license": "ISC"
+}
