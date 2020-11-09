@@ -57,13 +57,12 @@ yargs.command({
             demandOption: true,
             type: 'string'
         },
-
-    },
-    artista: {
-        alias: 'a',
-        describe: 'Nuevo artista de la canción',
-        demandOption: true,
-        type: 'string'
+        artista: {
+            alias: 'a',
+            describe: 'Nuevo artista de la canción',
+            demandOption: true,
+            type: 'string'
+        },
     },
     handler(argv) {
         canciones.editArtista(argv.titulo, argv.artista);
@@ -88,7 +87,7 @@ yargs.command({
 
 yargs.command({
     command: 'list',
-    describe: 'Borrar canción',
+    describe: 'Listar canciones',
     handler(argv) {
         canciones.listCanciones();
     }
