@@ -1,13 +1,15 @@
 # musica-app
 
 ### Formato del fichero JSON:
- ````Json
- [
-     {
+````Json
+[
+    {
          nombre: 'Canción', 
          artista: 'Artista', 
-         año: 0000}]
- ````
+         año: 0000
+    }
+]
+````
 
 ## Comandos Yargs:
     * add -t="Canción" -a="Artista" -y="Año"
